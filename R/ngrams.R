@@ -73,7 +73,7 @@ ngramSingle <- function(text, n=2, concatenator="_", include.all=FALSE, ...) {
     # paste the elements together
     ngram.result <- do.call('paste', c(tl, sep = concatenator))
     # build up list with successive calls if include.all is TRUE
-    if (include.all==TRUE) {
+    if (include.all==TRUE && n > 1) {
         for (i in (n-1):1) {
             ngram.result <- c(ngramSingle(text, i, concatenator, ...), ngram.result)
         }
