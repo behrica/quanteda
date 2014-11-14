@@ -60,6 +60,9 @@ ngrams <- function(text, n=2, concatenator="_", include.all=FALSE, ...) {
 ngramSingle <- function(text, n=2, concatenator="_", include.all=FALSE, ...) {
     t <- unlist(tokenize(text, ...))
     len <- length(t)
+    if (len = 0)
+      return(c())
+
     n=min(len,n)
     ngram.result <- c()  # initialize ngrams vector
     tl <- list()   # initialize tl vector
